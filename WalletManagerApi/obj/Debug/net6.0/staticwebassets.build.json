@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "ef1bdHCeRx2NHlK8TDvRXmy0tNOqVXe9+yQmY4NIUmw=",
+  "Source": "WalletManagerApi",
+  "BasePath": "_content/WalletManagerApi",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}

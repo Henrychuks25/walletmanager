@@ -1,0 +1,18 @@
+{
+  "version": 2,
+  "dgSpecHash": "E4JeZi9H2/YGxbqNbJBG0Na+CHZ7pjJhxPbC+0EbxbOAauIQLH4Ys9OA9OOeSO+YKOlEVcakpubWX9GY0ejFeA==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\henri\\Desktop\\Cyborg\\Projects\\C#\\API\\LoggerService\\LoggerService.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\henri\\.nuget\\packages\\microsoft.extensions.configuration.abstractions\\5.0.0\\microsoft.extensions.configuration.abstractions.5.0.0.nupkg.sha512",
+    "C:\\Users\\henri\\.nuget\\packages\\microsoft.extensions.dependencyinjection\\5.0.0\\microsoft.extensions.dependencyinjection.5.0.0.nupkg.sha512",
+    "C:\\Users\\henri\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\5.0.0\\microsoft.extensions.dependencyinjection.abstractions.5.0.0.nupkg.sha512",
+    "C:\\Users\\henri\\.nuget\\packages\\microsoft.extensions.logging\\5.0.0\\microsoft.extensions.logging.5.0.0.nupkg.sha512",
+    "C:\\Users\\henri\\.nuget\\packages\\microsoft.extensions.logging.abstractions\\5.0.0\\microsoft.extensions.logging.abstractions.5.0.0.nupkg.sha512",
+    "C:\\Users\\henri\\.nuget\\packages\\microsoft.extensions.options\\5.0.0\\microsoft.extensions.options.5.0.0.nupkg.sha512",
+    "C:\\Users\\henri\\.nuget\\packages\\microsoft.extensions.primitives\\5.0.0\\microsoft.extensions.primitives.5.0.0.nupkg.sha512",
+    "C:\\Users\\henri\\.nuget\\packages\\nlog\\4.7.15\\nlog.4.7.15.nupkg.sha512",
+    "C:\\Users\\henri\\.nuget\\packages\\nlog.extensions.logging\\1.7.5\\nlog.extensions.logging.1.7.5.nupkg.sha512"
+  ],
+  "logs": []
+}
