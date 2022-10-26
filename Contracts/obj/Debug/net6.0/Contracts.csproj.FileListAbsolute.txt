@@ -13,3 +13,5 @@ C:\Users\henri\Desktop\Cyborg\Projects\C#\API\Contracts\obj\Debug\net6.0\Contrac
 C:\Users\henri\Desktop\Cyborg\Projects\C#\API\Contracts\obj\Debug\net6.0\refint\Contracts.dll
 C:\Users\henri\Desktop\Cyborg\Projects\C#\API\Contracts\obj\Debug\net6.0\Contracts.pdb
 C:\Users\henri\Desktop\Cyborg\Projects\C#\API\Contracts\obj\Debug\net6.0\ref\Contracts.dll
+C:\Users\henri\Desktop\Cyborg\Projects\C#\API\Contracts\bin\Debug\net6.0\Shared.dll
+C:\Users\henri\Desktop\Cyborg\Projects\C#\API\Contracts\bin\Debug\net6.0\Shared.pdb

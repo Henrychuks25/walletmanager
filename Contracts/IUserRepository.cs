@@ -1,4 +1,5 @@
 ﻿using Entities.Models;
+using Shared.DataTransferObjects;
 
 namespace Contracts;
 
@@ -9,5 +10,11 @@ public interface IUserRepository
 	Task<User> GetUserEmailAsync(string email, bool trackChanges);
 	Task<User> GetUserEmailPasswordAsync(string email, string password, bool trackChanges);
 	void Create(User user);
-	void Delete(User user);
+
+	Task <User> GetUserWallet(Guid id, bool trackChanges);
+    Task<User> Get(Guid userId);
+    Task<User> GetWallet(WalletUserTopUpDto walletUser);
+
+    void Delete(User user);
+
 }

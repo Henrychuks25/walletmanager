@@ -87,3 +87,4 @@ C:\Users\henri\Desktop\Cyborg\Projects\C#\API\WalletManagerApi\obj\Debug\net6.0\
 C:\Users\henri\Desktop\Cyborg\Projects\C#\API\WalletManagerApi\obj\Debug\net6.0\WalletManagerApi.pdb
 C:\Users\henri\Desktop\Cyborg\Projects\C#\API\WalletManagerApi\obj\Debug\net6.0\WalletManagerApi.genruntimeconfig.cache
 C:\Users\henri\Desktop\Cyborg\Projects\C#\API\WalletManagerApi\obj\Debug\net6.0\ref\WalletManagerApi.dll
+C:\Users\henri\Desktop\Cyborg\Projects\C#\API\WalletManagerApi\bin\Debug\net6.0\BCrypt.Net.dll

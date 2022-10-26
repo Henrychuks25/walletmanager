@@ -61,6 +61,10 @@
               "target": "Package",
               "version": "[12.0.0, )"
             },
+            "BCrypt.Net": {
+              "target": "Package",
+              "version": "[0.1.0, )"
+            },
             "FluentValidation.AspNetCore": {
               "target": "Package",
               "version": "[11.2.2, )"
@@ -126,6 +130,9 @@
             "projectReferences": {
               "C:\\Users\\henri\\Desktop\\Cyborg\\Projects\\C#\\API\\Entities\\Entities.csproj": {
                 "projectPath": "C:\\Users\\henri\\Desktop\\Cyborg\\Projects\\C#\\API\\Entities\\Entities.csproj"
+              },
+              "C:\\Users\\henri\\Desktop\\Cyborg\\Projects\\C#\\API\\Shared\\Shared.csproj": {
+                "projectPath": "C:\\Users\\henri\\Desktop\\Cyborg\\Projects\\C#\\API\\Shared\\Shared.csproj"
               }
             }
           }
@@ -204,6 +211,16 @@
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
+          "dependencies": {
+            "Microsoft.EntityFrameworkCore.Relational": {
+              "target": "Package",
+              "version": "[6.0.10, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[6.0.10, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",

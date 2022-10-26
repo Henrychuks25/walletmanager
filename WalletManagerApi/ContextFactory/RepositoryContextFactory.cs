@@ -1,6 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Design;
+using Microsoft.Extensions.Options;
 using Repository;
+using static Microsoft.EntityFrameworkCore.DbLoggerCategory.Database;
 
 namespace WalletAppApi.ContextFactory;
 
@@ -14,9 +16,10 @@ public class RepositoryContextFactory : IDesignTimeDbContextFactory<RepositoryCo
 			.Build();
 
 		var builder = new DbContextOptionsBuilder<RepositoryContext>()
-			.UseSqlServer(configuration.GetConnectionString("sqlConnection"),
-			b => b.MigrationsAssembly("CompanyEmployees"));
+		.UseSqlServer(configuration.GetConnectionString("DefaultConnection"),
+			 b => b.MigrationsAssembly("WalletManagerApi"));
+            //b => b.MigrationsAssembly("WalletAppApi"));
 
-		return new RepositoryContext(builder.Options);
+        return new RepositoryContext(builder.Options);
 	}
 }

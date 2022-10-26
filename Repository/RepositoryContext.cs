@@ -13,10 +13,13 @@ public class RepositoryContext : DbContext
 
 	protected override void OnModelCreating(ModelBuilder modelBuilder)
 	{
-		modelBuilder.ApplyConfiguration(new CompanyConfiguration());
-		modelBuilder.ApplyConfiguration(new EmployeeConfiguration());
+		//modelBuilder.ApplyConfiguration(new CompanyConfiguration());
+		//modelBuilder.ApplyConfiguration(new EmployeeConfiguration());
+		//modelBuilder.ApplyConfiguration(new UserConfiguration());
 	}
 
 	public DbSet<Company>? Companies { get; set; }
 	public DbSet<Employee>? Employees { get; set; }
+	public DbSet<User>? User { get; set; }
+	public DbSet<Wallet>? Wallets { get; set; }
 }
