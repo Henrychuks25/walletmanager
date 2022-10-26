@@ -4,15 +4,15 @@ using MediatR;
 
 namespace Application.Handlers;
 
-internal sealed class EmailHandler : INotificationHandler<CompanyDeletedNotification>
+internal sealed class EmailHandler : INotificationHandler<WalletTopUpNotification>
 {
 	private readonly ILoggerManager _logger;
 
 	public EmailHandler(ILoggerManager logger) => _logger = logger;
 
-	public async Task Handle(CompanyDeletedNotification notification, CancellationToken cancellationToken)
+	public async Task Handle(WalletTopUpNotification notification, CancellationToken cancellationToken)
 	{
-		_logger.LogWarn($"Delete action for the company with id: {notification.Id} has occurred.");
+		_logger.LogInfo($"wallet top for userid: {notification.Id} was successful.");
 
 		await Task.CompletedTask;
 	}
