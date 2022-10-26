@@ -17,5 +17,6 @@ public class RepositoryContext : DbContext
 
 
 	public DbSet<User>? User { get; set; }
+	public DbSet<TransactionHistory>? TransactionHistories { get; set; }
 	public DbSet<Wallet>? Wallets { get; set; }
 }

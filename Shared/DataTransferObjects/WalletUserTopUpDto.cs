@@ -11,5 +11,7 @@ namespace Shared.DataTransferObjects
         public Guid userId { get; init; }
         public string currency { get; init; }
         public decimal amount { get; init; }
+
+        public DateTime CreatedDate { get; set; }
     }
 }
