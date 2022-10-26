@@ -35,8 +35,8 @@ internal sealed class UserRepository : RepositoryBase<User>, IUserRepository
 		 .SingleOrDefaultAsync();
 
 	public async Task<User> GetUserWallet(Guid id, bool trackChanges) => await RepositoryContext.User.Include(c => c.Wallets).FirstOrDefaultAsync(u => u.Id == id);
-	public async Task<User> GetWallet(WalletUserTopUpDto walletUser) => await RepositoryContext.User.Include(c => c.Wallets).FirstOrDefaultAsync(u => u.Id == walletUser.userId);
+    public async Task<User> GetWallet(WalletUserTopUpDto walletUser) => await RepositoryContext.User.Include(c => c.Wallets).FirstOrDefaultAsync(u => u.Id == walletUser.userId);
 
-	public async Task<User> Get(Guid userId) => await RepositoryContext.User.Include(c => c.Wallets).FirstOrDefaultAsync(u => u.Id == userId);
+    public async Task<User> Get(Guid userId) => await RepositoryContext.User.Include(c => c.Wallets).FirstOrDefaultAsync(u => u.Id == userId);
 
 }

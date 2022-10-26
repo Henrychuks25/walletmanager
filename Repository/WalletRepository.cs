@@ -83,7 +83,7 @@ internal sealed class WalletRepository : RepositoryBase<Wallet>, IWalletReposito
 
 	
 
-	public async Task<Wallet> GetWalletAsync(Guid walletId, string currency) => await RepositoryContext.Wallets.FirstOrDefaultAsync(u => u.Id == walletId && u.Currency == currency);
+	public async Task<Wallet> GetWalletAsync(Guid userId, string currency) => await RepositoryContext.Wallets.FirstOrDefaultAsync(u => u.UserId == userId && u.Currency == currency);
 
 
 }

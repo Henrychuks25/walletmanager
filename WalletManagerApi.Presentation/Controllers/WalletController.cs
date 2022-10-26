@@ -53,5 +53,24 @@ public class WalletController : ControllerBase
 		return CreatedAtRoute("WalletById", new { id = wallet.Id }, wallet);
 	}
 
-	
+    [HttpPut("top_up")]
+    public async Task<IActionResult> TopUpWallet(WalletUserTopUpDto walletUser)
+    {
+        if (walletUser is null)
+            return BadRequest("WalletUserTopUpDto object is null");
+
+        await _sender.Send(new TopUpWalletCommand(walletUser));
+
+        return NoContent();
+    }
+
+
+    [HttpPost("withdraw_money")]
+    public async Task<IActionResult> WithdrawMoney([FromBody] WalletUserWithdrawDto walletUser)
+    {
+        var wallet = await _sender.Send(new CreateWalletWithdrawalCommand(walletUser));
+
+        return CreatedAtRoute("WalletById", new { id = wallet.Id }, wallet);
+    }
+
 }
