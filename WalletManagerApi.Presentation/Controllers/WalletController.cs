@@ -35,7 +35,14 @@ public class WalletController : ControllerBase
 
 		return Ok(wallet);
 	}
-    //[HttpGet("example/{param1}/{param2:Guid}")]
+
+    [HttpGet("balance/{id:guid}", Name = "WalletBalanceById")]
+    public async Task<IActionResult> GetWalletBalance(Guid id)
+    {
+        var wallet = await _sender.Send(new GetUserBalanceQuery(id));
+
+        return Ok(wallet);
+    }
 
     [HttpGet("{id:guid}/{currency}", Name = "WalletById_Currency")]
     public async Task<IActionResult> GetWalletCurrency(Guid id, string currency)

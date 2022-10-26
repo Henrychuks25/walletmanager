@@ -58,6 +58,7 @@ internal sealed class WalletRepository : RepositoryBase<Wallet>, IWalletReposito
         await RepositoryContext.SaveChangesAsync();
     }
     public async Task<User> Get(Guid userId) => await RepositoryContext.User.Include(c => c.Wallets).FirstOrDefaultAsync(u => u.Id == userId);
+    public async Task<IEnumerable<User>> GetWalletsBalance(Guid userId) => await RepositoryContext.User.Include(c => c.Wallets).Where(u => u.Id == userId).ToListAsync();
 
  //   public async Task Transfer(WalletUserTransferDto walletUser)
 	//{

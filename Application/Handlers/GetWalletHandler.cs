@@ -20,11 +20,11 @@ internal sealed class GetWalletHandler : IRequestHandler<GetWalletQuery, WalletD
 
 	public async Task<WalletDto> Handle(GetWalletQuery request, CancellationToken cancellationToken)
 	{
-		var company = await _repository.Wallet.GetAsync(request.Id, request.TrackChanges);
-		if (company is null)
+		var wallet = await _repository.Wallet.GetAsync(request.Id, request.TrackChanges);
+		if (wallet is null)
 			throw new UserNotFoundException(request.Id);
 
-		var userDto = _mapper.Map<WalletDto>(company);
+		var userDto = _mapper.Map<WalletDto>(wallet);
 
 		return userDto;
 	}

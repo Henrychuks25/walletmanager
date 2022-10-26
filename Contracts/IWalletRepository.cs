@@ -11,7 +11,7 @@ public interface IWalletRepository
 	Task<Wallet> GetWalletAsync(Guid walletId, string currency);
     Task CreateWallet(Guid userId, string currency);
     Task<User> Get(Guid userId);
-
+    Task<IEnumerable<User>> GetWalletsBalance(Guid userId);
     Task TopUp(WalletUserTopUpDto walletUser);
     Task Withdraw(WalletUserWithdrawDto walletUser);
     //Task Transfer(WalletUserTransferDto walletUser);
