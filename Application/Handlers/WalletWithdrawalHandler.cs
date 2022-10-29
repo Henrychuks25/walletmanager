@@ -33,7 +33,16 @@ internal sealed class WalletWithdrawalHandler : IRequestHandler<CreateWalletWith
         var walletToReturn = _mapper.Map<WalletDto>(walletEntity);
 
         await _repository.SaveAsync();
+        TransactionHistory transaction = new TransactionHistory();
 
+        transaction.Id = Guid.NewGuid();
+        transaction.UserId = wallet.UserId;
+        transaction.CreatedDate = wallet.CreatedDate;
+        transaction.UpdatedDate = wallet.UpdatedDate;
+        transaction.TransactionType = "Account Withdrawal";
+        transaction.TransactionAmount = wallet.Amount;
+        //transaction.TransactionType = userEntity.Wallets.First().Currency;
+        await _repository.TransactionHistory.CreateUserTransaction(transaction);
 
         return walletToReturn;
     }

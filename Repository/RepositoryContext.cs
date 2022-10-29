@@ -10,6 +10,10 @@ public class RepositoryContext : DbContext
 	{
 	}
 
+	public RepositoryContext()
+	{
+	}
+
 	protected override void OnModelCreating(ModelBuilder modelBuilder)
 	{
 		

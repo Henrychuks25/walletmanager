@@ -26,8 +26,11 @@ internal sealed class CreateWalletHandler : IRequestHandler<CreateWalletCommand,
             // this wallet already exist
             throw new KeyNotFoundException();
 
+        //create transaction history 
+        await _repository.TransactionHistory.CreateTransaction(request.Wallet.userId);
 
-        _repository.Wallet.CreateWallet(walletEntity.UserId, walletEntity.Currency);
+        await _repository.Wallet.CreateWallet(walletEntity.UserId, walletEntity.Currency);
+
         await _repository.SaveAsync();
 
         var walletToReturn = _mapper.Map<WalletDto>(walletEntity);

@@ -28,7 +28,7 @@ public class WalletController : ControllerBase
 		return Ok(wallets);
 	}
 
-	[HttpGet("{id:guid}", Name = "WalletById")]
+	[HttpGet("{walletId:guid}", Name = "WalletById")]
 	public async Task<IActionResult> GetWallet(Guid id)
 	{
 		var wallet = await _sender.Send(new GetWalletQuery(id, TrackChanges: false));
@@ -36,12 +36,20 @@ public class WalletController : ControllerBase
 		return Ok(wallet);
 	}
 
-    [HttpGet("balance/{id:guid}", Name = "WalletBalanceById")]
+    [HttpGet("balance/{userId:guid}", Name = "WalletBalanceById")]
     public async Task<IActionResult> GetWalletBalance(Guid id)
     {
         var wallet = await _sender.Send(new GetUserBalanceQuery(id));
 
         return Ok(wallet);
+    }
+
+    [HttpGet("user/balances/{userId:guid}", Name = "WalletsBalanceByuserId")]
+    public async Task<IActionResult> GetWalletBalances(Guid userId)
+    {
+        var wallets = await _sender.Send(new GetWalletsBalanceQuery(userId));
+
+        return Ok(wallets);
     }
 
     [HttpGet("{id:guid}/{currency}", Name = "WalletById_Currency")]
@@ -76,8 +84,9 @@ public class WalletController : ControllerBase
     public async Task<IActionResult> WithdrawMoney([FromBody] WalletUserWithdrawDto walletUser)
     {
         var wallet = await _sender.Send(new CreateWalletWithdrawalCommand(walletUser));
+        return NoContent();
 
-        return CreatedAtRoute("WalletById", new { id = wallet.Id }, wallet);
+        //return CreatedAtRoute("WalletBalanceById", new { id = wallet.Id }, wallet);
     }
 
 }

@@ -17,8 +17,10 @@ public class MappingProfile : Profile
 		CreateMap<WalletUserTopUpDto, Wallet>();
 		CreateMap<WalletUserTransferDto, Wallet>();
 		CreateMap<WalletUserWithdrawDto, Wallet>();
-		CreateMap<UserBalanceDto, User>();
+		CreateMap<UserBalanceDto, User>().ReverseMap();
+		//CreateMap<UserBalanceDto, User>();
 		CreateMap<UserForCreationDto, User>();
+		CreateMap<TransactionHistory, TransactionHistoryDto>();
 
 		CreateMap<UserForUpdateDto, User>();
 	}

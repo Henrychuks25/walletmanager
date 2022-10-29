@@ -41,6 +41,9 @@
               "C:\\Users\\henri\\Desktop\\Cyborg\\Projects\\C#\\API\\Contracts\\Contracts.csproj": {
                 "projectPath": "C:\\Users\\henri\\Desktop\\Cyborg\\Projects\\C#\\API\\Contracts\\Contracts.csproj"
               },
+              "C:\\Users\\henri\\Desktop\\Cyborg\\Projects\\C#\\API\\Repository\\Repository.csproj": {
+                "projectPath": "C:\\Users\\henri\\Desktop\\Cyborg\\Projects\\C#\\API\\Repository\\Repository.csproj"
+              },
               "C:\\Users\\henri\\Desktop\\Cyborg\\Projects\\C#\\API\\Shared\\Shared.csproj": {
                 "projectPath": "C:\\Users\\henri\\Desktop\\Cyborg\\Projects\\C#\\API\\Shared\\Shared.csproj"
               }
@@ -427,7 +430,11 @@
         "frameworks": {
           "net6.0": {
             "targetAlias": "net6.0",
-            "projectReferences": {}
+            "projectReferences": {
+              "C:\\Users\\henri\\Desktop\\Cyborg\\Projects\\C#\\API\\Entities\\Entities.csproj": {
+                "projectPath": "C:\\Users\\henri\\Desktop\\Cyborg\\Projects\\C#\\API\\Entities\\Entities.csproj"
+              }
+            }
           }
         },
         "warningProperties": {

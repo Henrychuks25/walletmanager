@@ -1114,6 +1114,7 @@
           "Contracts": "1.0.0",
           "FluentValidation.AspNetCore": "11.2.2",
           "MediatR": "9.0.0",
+          "Repository": "1.0.0",
           "Shared": "1.0.0"
         },
         "runtime": {
@@ -1158,6 +1159,9 @@
         }
       },
       "Shared/1.0.0": {
+        "dependencies": {
+          "Entities": "1.0.0"
+        },
         "runtime": {
           "Shared.dll": {}
         }

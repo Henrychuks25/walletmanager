@@ -28,12 +28,22 @@ internal sealed class TopUpWalletHandler : IRequestHandler<TopUpWalletCommand, W
             throw new KeyNotFoundException("Operation not successful");
 
         wallet.Amount += walletEntity.Amount;
+		wallet.UpdatedDate = DateTime.Now;
 
         var walletToReturn = _mapper.Map<WalletDto>(walletEntity);
 
         await _repository.SaveAsync();
 
+        TransactionHistory transaction = new TransactionHistory();
 
+        transaction.Id = Guid.NewGuid();
+        transaction.UserId = wallet.UserId;
+        transaction.CreatedDate = wallet.CreatedDate;
+        transaction.UpdatedDate = wallet.UpdatedDate;
+        transaction.TransactionType = "Account Top Up";
+        transaction.TransactionAmount = wallet.Amount;
+        //transaction.TransactionType = userEntity.Wallets.First().Currency;
+        await _repository.TransactionHistory.CreateUserTransaction(transaction);
         return walletToReturn;
     }
 

@@ -19,3 +19,5 @@ C:\Users\henri\Desktop\Cyborg\Projects\C#\API\WalletManagerApi.Presentation\obj\
 C:\Users\henri\Desktop\Cyborg\Projects\C#\API\WalletManagerApi.Presentation\obj\Debug\net6.0\refint\WalletManagerApi.Presentation.dll
 C:\Users\henri\Desktop\Cyborg\Projects\C#\API\WalletManagerApi.Presentation\obj\Debug\net6.0\WalletManagerApi.Presentation.pdb
 C:\Users\henri\Desktop\Cyborg\Projects\C#\API\WalletManagerApi.Presentation\obj\Debug\net6.0\ref\WalletManagerApi.Presentation.dll
+C:\Users\henri\Desktop\Cyborg\Projects\C#\API\WalletManagerApi.Presentation\bin\Debug\net6.0\Repository.dll
+C:\Users\henri\Desktop\Cyborg\Projects\C#\API\WalletManagerApi.Presentation\bin\Debug\net6.0\Repository.pdb

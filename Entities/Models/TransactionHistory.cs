@@ -18,6 +18,7 @@ namespace Entities.Models
         [Required]
         public string TransactionType { get; set; }
 
+        public decimal TransactionAmount { get; set; }
         public DateTime CreatedDate { get; set; }
         public DateTime UpdatedDate { get; set; }
 

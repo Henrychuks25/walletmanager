@@ -1,13 +1,19 @@
-﻿namespace Shared.DataTransferObjects;
+﻿using Entities.Models;
+
+namespace Shared.DataTransferObjects;
 
 public record UserBalanceDto
-{ 
-     public Guid Id { get; init; } 
-    public string? FirstName { get; init; }
-    public string? LastName { get; init; }
-    public string? Email { get; init; }
-    public string? Password { get; init; }
+{
+    public Guid Id { get; init; }
+    public string FirstName { get; set; }
+    public string LastName { get; set; }
+    public string Email { get; set; }
 
-    public string? Wallet { get; init; }
+    public string NGNWallet { get; set; }
+    public string USDWallet { get; set; }
+    public decimal Amount { get; set; }
+
+    //public virtual ICollection<Wallet> Wallets { get; set; } = new List<Wallet>();
+
 
 }

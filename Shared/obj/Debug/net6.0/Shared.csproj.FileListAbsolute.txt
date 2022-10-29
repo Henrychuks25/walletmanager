@@ -10,3 +10,6 @@ C:\Users\henri\Desktop\Cyborg\Projects\C#\API\Shared\obj\Debug\net6.0\Shared.dll
 C:\Users\henri\Desktop\Cyborg\Projects\C#\API\Shared\obj\Debug\net6.0\refint\Shared.dll
 C:\Users\henri\Desktop\Cyborg\Projects\C#\API\Shared\obj\Debug\net6.0\Shared.pdb
 C:\Users\henri\Desktop\Cyborg\Projects\C#\API\Shared\obj\Debug\net6.0\ref\Shared.dll
+C:\Users\henri\Desktop\Cyborg\Projects\C#\API\Shared\bin\Debug\net6.0\Entities.dll
+C:\Users\henri\Desktop\Cyborg\Projects\C#\API\Shared\bin\Debug\net6.0\Entities.pdb
+C:\Users\henri\Desktop\Cyborg\Projects\C#\API\Shared\obj\Debug\net6.0\Shared.csproj.CopyComplete

@@ -184,7 +184,11 @@
         "frameworks": {
           "net6.0": {
             "targetAlias": "net6.0",
-            "projectReferences": {}
+            "projectReferences": {
+              "C:\\Users\\henri\\Desktop\\Cyborg\\Projects\\C#\\API\\Entities\\Entities.csproj": {
+                "projectPath": "C:\\Users\\henri\\Desktop\\Cyborg\\Projects\\C#\\API\\Entities\\Entities.csproj"
+              }
+            }
           }
         },
         "warningProperties": {
