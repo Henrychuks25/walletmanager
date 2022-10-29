@@ -2,6 +2,7 @@
 using Entities.Models;
 using Microsoft.EntityFrameworkCore;
 using Shared.DataTransferObjects;
+using Shared.Helpers;
 using static Shared.DataTransferObjects.WalletUserTransferDto;
 
 namespace Repository;
@@ -13,69 +14,55 @@ internal sealed class SimpleInterestRepository : RepositoryBase<Wallet>, ISimple
 	{
 	}
 
-	public async Task<IEnumerable<Wallet>> GetAllWalletAsync(bool trackChanges) =>
-		await FindAll(trackChanges)
-		.OrderBy(c => c.Currency)
-		.ToListAsync();
-
-	public async Task<Wallet> GetAsync(Guid walletId, bool trackChanges) =>
-		await FindByCondition(c => c.Id.Equals(walletId), trackChanges)
-		.SingleOrDefaultAsync();
-
-	
-
-
-
-
-
-	public async Task<User> GetUserWallet( Guid id, bool trackChanges) => await RepositoryContext.User.Include(c => c.Wallets).FirstOrDefaultAsync(u => u.Id == id);
-
-
-	public async Task CreateWallet(Guid userId, string currency) => await RepositoryContext.Wallets.AddAsync(new Wallet() { UserId = userId, Currency = currency, CreatedDate = DateTime.Now });
-
-	public async Task TopUp(WalletUserTopUpDto walletUser)
+	public async  Task<double> CreateSimpleInterest(Guid userId, string currency)
 	{
-        var wallet = await GetWalletAsync(walletUser.userId, walletUser.currency);
-        if (wallet is null)
-            return;
+        WalletUserTopUpDto walletUser;
+        var interest = 0.00;
+        // interest is prt/100
+        int noOfDays = DateTime.Now.Subtract(new DateTime(DateTime.Now.Year, DateTime.Now.Month, 1)).Days + 1;
+        CurrentTime currentTime = new CurrentTime();
+        string time = currentTime.getCurrentTime();
+        //string time = "12:00:00 PM";
+        double interestRate = 0.1;
+        var result = await GetWalletBalance(userId, currency);
+        if(result != null && result.Currency.Contains("NGN") && time.Equals("12:00:00 AM"))
+        {
+            double principal = (double)result.Amount;
+            
+             interest = (principal * interestRate * noOfDays) / 100;
+            result.Amount += (decimal) interest;
+            result.UpdatedDate = DateTime.Now;
 
-        wallet.Amount += walletUser.amount;
-		wallet.UpdatedDate = DateTime.Now;
+            await RepositoryContext.SaveChangesAsync();
 
-        await RepositoryContext.SaveChangesAsync();
+        }
+        else if(result != null && result.Currency.Contains("USD") && time.Equals("12:00:00 AM"))
+        {
+            double principal = (double)result.Amount;
+
+             interest =  (principal * interestRate * noOfDays) / 100;
+            result.Amount += (decimal)interest;
+            result.UpdatedDate = DateTime.Now;
+            await RepositoryContext.SaveChangesAsync();
+
+        }
+        else
+        {
+            interest = 0.00;
+        }
+
+        return interest;
     }
 
-	public async Task Withdraw(WalletUserWithdrawDto walletUser)
-	{
-        var wallet = await GetWalletAsync(walletUser.userId, walletUser.currency);
-        if (wallet is null)
-            return;
+    public async Task<Wallet> GetWalletBalance(Guid userId, string currency)
+    {
+        var result = await RepositoryContext.Wallets
+            .Where(u => u.Id == userId && u.Currency.Equals(currency) ).FirstOrDefaultAsync();
 
-        if (walletUser.amount > wallet.Amount)
-            throw new Exception("Not Enough funds");
 
-        wallet.Amount -= walletUser.amount;
+        return result;
 
-        await RepositoryContext.SaveChangesAsync();
     }
-    public async Task<User> Get(Guid userId) => await RepositoryContext.User.Include(c => c.Wallets).FirstOrDefaultAsync(u => u.Id == userId);
-    //public async Task<IEnumerable<User>> GetWalletsBalance(Guid userId) => await RepositoryContext.User.Include(c => c.Wallets).Where(u => u.Id == userId).ToListAsync();
-    public async Task<IEnumerable<User>> GetWalletsBalance(Guid userId)
-	{
-        var  result =   await RepositoryContext.User.Include(c => c.Wallets)
-			.Where(u => u.Id == userId).ToListAsync();
-        
 
-		return result;
-
-    } 
-
-
-
-	public async Task<Wallet> GetWalletAsync(Guid userId, string currency) => await RepositoryContext.Wallets.FirstOrDefaultAsync(u => u.UserId == userId && u.Currency == currency);
-
-	public async Task<IEnumerable<Wallet>> GetAllWalletByUserIdAsync(Guid userId)
-	{
-	return	await RepositoryContext.Wallets.Where(u => u.UserId == userId).ToListAsync();
-    }
+  
 }
