@@ -8,5 +8,8 @@ namespace Contracts
         Task<double> CreateSimpleInterest(Guid userId, string currency);
         Task<Wallet> GetWalletBalance(Guid userId, string currency);
 
+        Task<IEnumerable<Wallet>> ProcessInterests(bool trackChanges);
+
+
     }
 }

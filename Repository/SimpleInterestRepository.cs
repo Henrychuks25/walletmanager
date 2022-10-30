@@ -54,6 +54,51 @@ internal sealed class SimpleInterestRepository : RepositoryBase<Wallet>, ISimple
         return interest;
     }
 
+    public async Task<IEnumerable<Wallet>> ProcessInterests(bool trackChanges)
+    {
+        var result = await RepositoryContext.Wallets.ToListAsync();
+        if(result != null)
+        {
+            foreach (var item in result)
+            {
+                var interest = 0.00;
+                // interest is prt/100
+                int noOfDays = DateTime.Now.Subtract(new DateTime(DateTime.Now.Year, DateTime.Now.Month, 1)).Days + 1;
+                CurrentTime currentTime = new CurrentTime();
+                //string time = currentTime.getCurrentTime();
+                string time = "12:00:00 AM";
+                double interestRate = 0.1;
+                if (result != null && item.Currency.Contains("NGN") && time.Equals("12:00:00 AM"))
+                {
+                    double principal = (double)item.Amount;
+
+                    interest = (principal * interestRate * noOfDays) / 100;
+                    item.Amount += (decimal)interest;
+                    item.UpdatedDate = DateTime.Now;
+
+                    await RepositoryContext.SaveChangesAsync();
+
+                }
+                else if (result != null && item.Currency.Contains("USD") && time.Equals("12:00:00 AM"))
+                {
+                    double principal = (double)item.Amount;
+
+                    interest = (principal * interestRate * noOfDays) / 100;
+                    item.Amount += (decimal)interest;
+                    item.UpdatedDate = DateTime.Now;
+                    await RepositoryContext.SaveChangesAsync();
+
+                }
+                else
+                {
+                    interest = 0.00;
+                }
+            }
+        }
+       
+        return result;
+    }
+
     public async Task<Wallet> GetWalletBalance(Guid userId, string currency)
     {
         var result = await RepositoryContext.Wallets

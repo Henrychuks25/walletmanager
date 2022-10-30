@@ -23,9 +23,9 @@ public class SimpleInterestController : ControllerBase
 	
 
     [HttpPost]
-	public async Task<IActionResult> CreateWallet([FromBody] SimpleInterestForCreationDto simpleInterest)
+	public async Task<IActionResult> CreateWallet()
 	{
-		var wallet = await _sender.Send(new CreateSimpleInterestCommand(simpleInterest));
+		var wallet = await _sender.Send(new CreateSimpleInterestCommand(TrackChanges: false));
 
 		return NoContent();
 	}
